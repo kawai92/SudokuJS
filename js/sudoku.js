@@ -1,5 +1,5 @@
 /**
- * Created by AbdullahAlkawai on 5/6/15.
+ * Created by YanningXue on 5/6/15.
  */
 
 function Sudoku(index)
