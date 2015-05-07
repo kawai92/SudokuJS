@@ -81,12 +81,17 @@ Sudoku.prototype.enterValue = function(){
 }
 Sudoku.prototype.enterClue = function(){
     var value = $("#val").val();
+    this.cell.className = "isClue";
     if(this.cell.className == "hassth"){
-        this.cell.className = "isClue";
         this.cell.innerText = value + "\u00a0";
     }else {
         if (this.cell.innerText.indexOf(value) == -1) {
+
             this.cell.innerText += value + "\u00a0";
+            if(this.cell.innerText.length == 7 || this.cell.innerText.length == 14) {
+                //console.log(this.cell.innerText.length);
+                this.cell.innerHTML += "<br>";
+            }
         }
     }
     this.input.hide();
