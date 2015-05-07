@@ -22,7 +22,6 @@ require 'format.inc.php';
         var sudoku;
         $(window).ready(function() {
             sudoku = new Sudoku(Math.floor((Math.random() * 11)));
-
         });
 
 
@@ -69,7 +68,7 @@ require 'format.inc.php';
                             */
 
                             for($c=0; $c<9; $c++) {
-                                $html .=  "<td class='nothing'><button onclick=" . "cellClicked(this)" . " key=" . "null" . " name=" . "cell" . " value=" . $r . "," . $c . " alt=\"not set\">&nbsp</button></td>";
+                                $html .=  "<td class='nothing'><button onclick=" . "sudoku.cellClicked(this)" . " key=" . "null" . " name=" . "cell" . " id=" . $r . "_".$c . " alt=\"not set\">&nbsp</button></td>";
 
                             }
                             $html .=  "</tr>";
@@ -88,11 +87,26 @@ require 'format.inc.php';
 
 
 
-            <p><b><a href="">Give up!</a></b></p>
+            <input type="button" id="giveUp" value="GiveUp" name="g" onclick="sudoku.giveUp()">
             <br>
         </fieldset>
 </div>
-
+<form id="cellinput">
+    <fieldset>
+        <p id="inputLoc"></p>
+        <p><label for="select">Select a value:</label><br>
+            <select name="val" id="val">
+                <?php
+                for($j=1; $j < 9; $j++) {
+                    echo "<option value=\"$j\">$j</option>";
+                }
+                ?>
+            </select>
+        <p><input type="button" onclick="sudoku.enterValue()" value="InsertValue"></p>
+        <p><input type="button" onclick="sudoku.enterClue()" value="InsertClue"></p>
+        <p><input type="button" onclick="sudoku.cancelPop()" value="Cancel"></p>
+    </fieldset>
+</form>
 
 </body>
 </html>

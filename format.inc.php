@@ -8,8 +8,8 @@
 
 function present_header() {
     $html  = <<< HTML
-<a href="#" id="newgame">New Game</a>
-<a href="#" id="game">Game</a>
+<a href="./index.php" id="newgame">New Game</a>
+<a href="game.php" id="game">Game</a>
 HTML;
 
     return $html;
