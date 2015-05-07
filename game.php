@@ -22,38 +22,10 @@ require 'format.inc.php';
         var sudoku;
         $(window).ready(function() {
             sudoku = new Sudoku(Math.floor((Math.random() * 11)));
-            var sudokuTable = document.getElementById("gameform");
-            var tableButton = sudokuTable.getElementsByTagName("button");
 
-            for(var i=0; i<81; i++) {
-
-                var buttonVal = tableButton[i].value;
-
-                var numVal1 = buttonVal.charAt(0);
-                var numVal2 = buttonVal.charAt(2);
-
-                if (numVal1 == 2 || numVal1 == 5) {
-                    tableButton[i].parentNode.className = "rowborder";
-                }
-
-                if (numVal2 == 2 || numVal2 == 5) {
-                    tableButton[i].parentNode.className = "colborder";
-
-                    if (numVal1 == 2 || numVal1 == 5 ) {
-                        tableButton[i].parentNode.className = "rowcolborder";
-                    }
-
-                }
-
-            }
         });
 
 
-        function cellClicked(item) {
-
-            event.preventDefault();
-
-        }
     </script>
 
     <title>Super Sudoku</title>
@@ -84,7 +56,6 @@ require 'format.inc.php';
             <div id="puzzle">
                 <form id="gameform" action="" method="POST">
                     <fieldset>
-                        <?php echo $name;?>'s Sudoku
                         <br>
                         <?php
                         /*
@@ -115,29 +86,9 @@ require 'format.inc.php';
             <br>
             <br>
 
-            <form id="cellinput">
-                <fieldset>
-            <p><label for="select">Select a value:</label><br>
-                <select name="val" id="val">
-                    <?php
-                    for($j=0; $j <= 9; $j++) {
-                        if($j == 0){
-                            echo "<option value=\"$j\">value</option>";
-                        }
-                        else {
-                            echo "<option value=\"$j\">$j</option>";
-                        }
-                    }
-                    ?>
-                </select>
 
-            <p><input type ="radio" name="select" value="cellv" selected="">Add value<br>
-                <input type ="radio" name="select" value="cluev">Add clue<br>
-                <p><input type="submit" value="Enter"></p></p>
-                </fieldset>
-            </form>
 
-            <p><b><a href="game-post.php?g=1">Give up!</a></b></p>
+            <p><b><a href="">Give up!</a></b></p>
             <br>
         </fieldset>
 </div>
